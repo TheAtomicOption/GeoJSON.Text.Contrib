@@ -49,7 +49,7 @@ namespace GeoJSON.Text.Contrib.EntityFramework.Test
             Assert.NotNull(multiLineString);
             Assert.NotNull(dbMultiLineString);
             Assert.Equal(WkbGeometryType.MultiLineString.ToString(), dbMultiLineString.GeometryType);
-            Assert.Equal(dbMultiLineString.Coordinates.Count(), multiLineString.Coordinates.Count);
+            Assert.Equal(dbMultiLineString.Coordinates.Count(), multiLineString.Coordinates.SelectMany(x => x.Coordinates).Count());
             Assert.Equal(multiLineString.Coordinates.SelectMany(ls => ls.Coordinates).Count(), dbMultiLineString.Coordinates.Count());
         }
 
@@ -94,7 +94,7 @@ namespace GeoJSON.Text.Contrib.EntityFramework.Test
             Assert.NotNull(multiPolygon);
             Assert.NotNull(dbMultiPolygon);
             Assert.Equal(WkbGeometryType.MultiPolygon.ToString(), dbMultiPolygon.GeometryType);
-            Assert.Equal(multiPolygon.Coordinates.Count, dbMultiPolygon.Coordinates.Length);
+            Assert.Equal(multiPolygon.Coordinates.SelectMany(p => p.Coordinates).Count(), dbMultiPolygon.NumGeometries);
             Assert.Equal(multiPolygon.Coordinates.SelectMany(p => p.Coordinates).SelectMany(ls => ls.Coordinates).Count(), dbMultiPolygon.Coordinates.Count());
         }
 
@@ -106,7 +106,7 @@ namespace GeoJSON.Text.Contrib.EntityFramework.Test
             Assert.NotNull(geomCollection);
             Assert.NotNull(dbGeomCol);
             Assert.Equal(WkbGeometryType.GeometryCollection.ToString(), dbGeomCol.GeometryType);
-            Assert.Equal(geomCollection.Geometries.Count, dbGeomCol.Coordinates.Count());
+            Assert.Equal(geomCollection.Geometries.Count, dbGeomCol.NumGeometries);
         }
     }
 }
