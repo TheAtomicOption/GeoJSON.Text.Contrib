@@ -133,7 +133,7 @@ namespace GeoJSON.Text.Contrib.EntityFramework.Test
 
                     Assert.Equal(point.Coordinates.Latitude, dbGeometry.Coordinate.Y);
                     Assert.Equal(point.Coordinates.Longitude, dbGeometry.Coordinate.X);
-                    //Assert.Equal(point.Coordinates.Altitude, dbGeometry.Coordinate.Z);
+                    Assert.Equal(point.Coordinates.Altitude, (double.IsNaN(dbGeometry.Coordinate.Z) ? null : dbGeometry.Coordinate.Z));
                     break;
                 case GeoJSONObjectType.MultiPoint:
                     var multiPoint = dbGeometry.ToGeoJSONObject<MultiPoint>();
@@ -148,7 +148,7 @@ namespace GeoJSON.Text.Contrib.EntityFramework.Test
 
                         Assert.NotNull(multiPoint.Coordinates.Single(p => p.Coordinates.Latitude == geographyPoint.Y
                             && p.Coordinates.Longitude == geographyPoint.X
-                           // && p.Coordinates.Altitude == geographyPoint.Z
+                            && p.Coordinates.Altitude == (double.IsNaN(geographyPoint.Z) ? null : geographyPoint.Z)
                            ));
                     }
                     break;
@@ -165,7 +165,7 @@ namespace GeoJSON.Text.Contrib.EntityFramework.Test
 
                         Assert.NotNull(lineString.Coordinates.Single(p => p.Latitude == geographyPoint.Y
                             && p.Longitude == geographyPoint.X
-                            //&& p.Altitude == geographyPoint.Z
+                            && p.Altitude  == (double.IsNaN(geographyPoint.Z) ? null : geographyPoint.Z)
                             ));
                     }
                     break;
