@@ -52,7 +52,7 @@ namespace GeoJSON.Text.Contrib.MsSqlSpatial
         /// <param name="sqlGeometry">SQL Server geometry to convert</param>
         /// <param name="withBoundingBox">Value indicating whether the feature's BoundingBox should be set.</param>
         /// <returns>GeoJSON geometry</returns>
-        public static T ToGeoJSONObject<T>(this  SqlGeometry sqlGeometry, bool withBoundingBox = true) where T : GeoJSONObject
+        public static T ToGeoJSONObject<T>(this SqlGeometry sqlGeometry, bool withBoundingBox = true) where T : GeoJSONObject
         {
             if (sqlGeometry == null || sqlGeometry.IsNull)
             {
