@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <Description>Provides GeoJSON.Text Converters from / to the EntityFramework Spatial types.</Description>
+    <Authors>Alvaro Montero Gonzalez</Authors>
+    <Copyright>Copyright © Alvaro Montero Gonzalez, Joerg Battermann, Matt Hunt, Xavier Fischer and Contributors, 2014 - 2019</Copyright>
+    <Version>0.1.7</Version>
+    <PackageTags>geojson;geo;json;geolocation;ef;entity;framework;entityframework</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes>Assembly signed. Updated to GeoJson 1.2.19</PackageReleaseNotes>
+    <AssemblyOriginatorKeyFile>../../src/GeoJSON.Text.Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <WarningsNotAsErrors>NU1701</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <WarningsNotAsErrors>NU1701</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+    <WarningsNotAsErrors>NU1701</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+    <WarningsNotAsErrors>NU1701</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" version="6.4.4" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="NetTopologySuite" Version="2.4.0" />
+    <ProjectReference Include="../GeoJSON.Text.Contrib.Wkb/GeoJSON.Text.Contrib.Wkb.csproj" />
+  </ItemGroup>
+
+</Project>
