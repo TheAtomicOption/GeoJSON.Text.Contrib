@@ -31,7 +31,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SqlServer.Types" version="14.0.1016.290" />
+    <PackageReference Include="Microsoft.SqlServer.Types" version="14.0.1016.290">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
     <PackageReference Include="System.Data.SqlClient" version="4.8.3" />
   </ItemGroup>
 
