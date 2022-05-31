@@ -13,7 +13,7 @@ namespace GeoJSON.Text.Contrib.Wkb.Conversions
     public static class WktDecode
     {
         private static char[] doubleChars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '.' };
-        private static char [] firstChars = { 'M', 'P', 'L', 'G' };
+        private static char[] firstChars = { 'M', 'P', 'L', 'G' };
         public static IGeometryObject Decode(string wkt)
         {
             var v_pos = 0;
@@ -117,7 +117,7 @@ namespace GeoJSON.Text.Contrib.Wkb.Conversions
         private static GeometryCollection ParseGeometryCollection(string wkt, ref int wktPosition)
         {
             var geometries = new List<IGeometryObject>();
-            
+
             while (wktPosition < wkt.Length - 1)
             {
                 if (wkt.Substring(wktPosition).ToUpper().IndexOfAny(firstChars) < 0)
