@@ -1,4 +1,4 @@
-﻿namespace GeoJSON.Text.Contrib.Wkb
+namespace GeoJSON.Text.Contrib.Wkb
 {
     /// <summary>
     /// GeoJSON.Text / Wkb converter.
@@ -9,6 +9,11 @@
         public static T ToGeoJSONObject<T>(this byte[] wkb) where T : GeoJSONObject
         {
             return wkb.ToGeoJSONGeometry() as T;
+        }
+
+        public static T ToGeoJSONObject<T>(this string wkt) where T : GeoJSONObject
+        {
+            return wkt.ToGeoJSONGeometry() as T;
         }
     }
 }

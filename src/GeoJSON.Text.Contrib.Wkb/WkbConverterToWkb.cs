@@ -1,4 +1,4 @@
-﻿using GeoJSON.Text.Contrib.Wkb.Conversions;
+using GeoJSON.Text.Contrib.Wkb.Conversions;
 using GeoJSON.Text.Geometry;
 
 namespace GeoJSON.Text.Contrib.Wkb
@@ -12,6 +12,11 @@ namespace GeoJSON.Text.Contrib.Wkb
         public static byte[] ToWkb(this IGeometryObject geometryObject)
         {
             return WkbEncode.Encode(geometryObject);
+        }
+
+        public static string ToWkt(this IGeometryObject geometryObject)
+        {
+            return WktEncode.Encode(geometryObject);
         }
     }
 }

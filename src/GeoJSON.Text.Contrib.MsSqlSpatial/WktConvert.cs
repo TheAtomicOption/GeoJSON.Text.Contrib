@@ -1,4 +1,4 @@
-﻿using GeoJSON.Text.Geometry;
+using GeoJSON.Text.Geometry;
 using Microsoft.SqlServer.Types;
 using System;
 using System.Data.SqlTypes;

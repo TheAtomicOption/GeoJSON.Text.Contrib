@@ -10,6 +10,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReleaseNotes>Assembly signed. Updated to GeoJson 1.2.19</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>../../src/GeoJSON.Text.Key.snk</AssemblyOriginatorKeyFile>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
